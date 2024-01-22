@@ -11,9 +11,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{5C769D20-132E-4F87-BF79-B8238DEDDC1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pineapple.Services.CouponAPI", "Services\Pineapple.Services.CouponAPI\Pineapple.Services.CouponAPI.csproj", "{2EF2716F-EF5A-4C72-AC9C-4AAA1A1BEBE5}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2EF2716F-EF5A-4C72-AC9C-4AAA1A1BEBE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EF2716F-EF5A-4C72-AC9C-4AAA1A1BEBE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EF2716F-EF5A-4C72-AC9C-4AAA1A1BEBE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EF2716F-EF5A-4C72-AC9C-4AAA1A1BEBE5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2EF2716F-EF5A-4C72-AC9C-4AAA1A1BEBE5} = {5C769D20-132E-4F87-BF79-B8238DEDDC1A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {80933777-FB4B-4C6F-BC19-26052CEE01A8}
