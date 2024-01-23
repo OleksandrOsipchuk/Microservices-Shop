@@ -5,6 +5,6 @@ namespace Pineapple.Web.Service.IService
 {
     public interface IBaseService
     {
-        Task<ResponceDto?> SendAsync(RequestDto);
+        Task<ResponceDto?> SendAsync(RequestDto requestDto);
     }
 }
