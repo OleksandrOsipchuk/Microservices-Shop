@@ -21,10 +21,15 @@ namespace Pineapple.Web.Controllers
 
             var responce = await _couponService.GetAllCouponsAsync();
 
-            if (responce != null || responce.IsSuccess)
+            if (responce != null && responce.IsSuccess)
             {
                 coupons = JsonConvert.DeserializeObject<List<CouponDto>>(Convert.ToString(responce.Data));
             }
+            else
+            {
+                TempData["error"] = responce?.Message;
+            }
+
             return View(coupons);
         }
 
@@ -40,11 +45,52 @@ namespace Pineapple.Web.Controllers
             if (ModelState.IsValid)
             {
                 var responce = await _couponService.CreateCouponAsync(model);
-                if (responce != null || responce.IsSuccess)
+                if (responce != null && responce.IsSuccess)
                 {
+                    TempData["success"] = "Successfuly created";
                     return RedirectToAction(nameof(Index));
                 }
+                else
+                {
+                    TempData["error"] = responce?.Message;
+                }
             }
+
+            return View(model);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var responce = await _couponService.GetCouponByIdAsync(id);
+
+            if (responce != null && responce.IsSuccess)
+            {
+                CouponDto coupon = JsonConvert.DeserializeObject<CouponDto>(Convert.ToString(responce.Data));
+                return View(coupon);
+            }
+            else
+            {
+                TempData["error"] = responce?.Message;
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Delete(CouponDto model)
+        {
+            var responce = await _couponService.DeleteCouponAsync(model.CouponId);
+            if (responce != null && responce.IsSuccess)
+            {
+                TempData["success"] = "Successfuly deleted";
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                TempData["error"] = responce?.Message;
+            }
+
             return View(model);
         }
     }

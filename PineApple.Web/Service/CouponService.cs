@@ -6,7 +6,7 @@ namespace Pineapple.Web.Service
 {
     public class CouponService : ICouponService
     {
-        private readonly string _couponApiUrl = SD.CouponApiBase + "/api/coupon";
+        private readonly string _couponApiUrl = SD.CouponApiBase + "/api/coupon/";
         private readonly IBaseService _baseService;
         public CouponService(IHttpClientFactory httpClientFactory, IBaseService baseService)
         {
